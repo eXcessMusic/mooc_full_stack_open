@@ -1,0 +1,25 @@
+# fly.toml app configuration file generated for phonebook-backend-divine-tree-8536 on 2024-12-19T14:27:28+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'phonebook-backend-divine-tree-8536'
+primary_region = 'cdg'
+
+[build]
+
+[env]
+  PORT = "3000" # add this
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
